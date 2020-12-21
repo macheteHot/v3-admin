@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [ "./src/*"],
+    },
+  },
+  "include": [
+    "./src/**/*",
+    "./node_modules/lodash/**/*",
+    "./node_modules/vuex/**/*"
+  ]
+}

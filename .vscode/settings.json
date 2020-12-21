@@ -1,0 +1,197 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "node_modules": true,
+    "dist": true,
+  },
+  "emmet.syntaxProfiles": {
+    "vue-html": "html",
+  },
+  "todo-tree.regex.regex": "(?:(?://|#|<!--|;|/\\*\\*?|\\*)\\s*($TAGS)|^\\s*- \\[ \\])",
+  "todo-tree.highlights.defaultHighlight": {
+    "foreground": "#FFF",
+    "background": "#F1C40F",
+    "icon": "check",
+    "rulerColour": "#F1C40F",
+    "type": "tag",
+    "iconColour": "#F1C40F"
+  },
+  "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "FIX",
+    "TAG",
+    "NOTE",
+    "todo",
+    "fixme",
+    "fix",
+    "tag",
+    "note",
+  ],
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "background": "#FF8C00",
+      "rulerColour": "#FF8C00",
+      "iconColour": "#FF8C00"
+    },
+    "FIXME": {
+      "background": "red",
+      "icon": "beaker",
+      "rulerColour": "red",
+      "iconColour": "red",
+    },
+    "FIX": {
+      "background": "blue",
+      "icon": "tag",
+      "rulerColour": "blue",
+      "iconColour": "blue",
+      "rulerLane": "full"
+    },
+    "NOTE": {
+      "background": "#f90",
+      "icon": "note",
+      "rulerColour": "#f90",
+      "iconColour ": "#f90"
+    },
+    "todo": {
+      "background": "#FF8C00",
+      "rulerColour": "#FF8C00",
+      "iconColour": "#FF8C00"
+    },
+    "fixme": {
+      "background": "red",
+      "icon": "beaker",
+      "rulerColour": "red",
+      "iconColour": "red",
+    },
+    "fix": {
+      "background": "blue",
+      "icon": "tag",
+      "rulerColour": "blue",
+      "iconColour": "blue",
+      "rulerLane": "full"
+    },
+    "note": {
+      "background": "#f90",
+      "icon": "note",
+      "rulerColour": "#f90",
+      "iconColour ": "#f90"
+    }
+  },
+  "better-comments.tags": [{
+      "tag": "!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "^",
+      "color": "#EADB67",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "&",
+      "color": "#FC427B",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#1E90FF",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": true
+    },
+    {
+      "tag": "~",
+      "color": "#D980FA",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#61CF45",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[sass]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "editor.codeActionsOnSave": { // eslint 自动修复
+    "source.fixAll.eslint": true
+  },
+  "vetur.validation.template": true,
+  "vetur.validation.script": false,
+  "emmet.triggerExpansionOnTab": true,
+  // 配置css 代码提示 减少内存使用 提示 src snippets public 三个目录下 所有 css less 文件
+  "html-css-class-completion.includeGlobPattern": "{src,snippets,public}/**/*.{css,less}",
+  // 不提示 antd.min.css
+  "html-css-class-completion.excludeGlobPattern": "public/css/antd.min.css",
+  "html-css-class-completion.enableEmmetSupport": false,
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "quickrequire.aliasPath": { // 快速引入 支持alias
+    "@/": "src"
+  },
+}

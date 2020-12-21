@@ -1,0 +1,12 @@
+
+/* 浏览器标签初始化 -- start */
+@charset "UTF-8";
+* { box-sizing: border-box;font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue For Number', BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, SimSun PingFang SC, Microsoft YaHei, Helvetica Neue For Number, BlinkMacSystemFont, Segoe UI, Roboto, Arial, SimSun; } html { height: 100%; } body { padding: 0; margin: 0; height: 100%; background: #fff; } ul, ol, li { list-style: none; margin: 0; padding: 0; } p { padding: 0; margin: 0; word-break: break-all; } #app { font-size: 14px; height: 100%; color: rgba(0, 0, 0, 0.85) !important; }
+
+/* 浏览器标签初始化 -- end */
+
+/* 全局样式 -- start */
+body {
+  background: #f0f2f5 !important;
+}
+/* 全局样式 -- end */

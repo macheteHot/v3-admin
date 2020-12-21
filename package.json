@@ -1,0 +1,56 @@
+{
+  "name": "v3-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve --mode dev",
+    "build:test": "vue-cli-service build --mode test --report",
+    "build:prod": "vue-cli-service build --mode prod",
+    "lint": "vue-cli-service lint --fix",
+    "inspect:prod": "vue-cli-service inspect --mode prod > prod.catWebpackConfig.js",
+    "inspect:dev": "vue-cli-service inspect --mode dev > dev.catWebpackConfig.js"
+  },
+  "dependencies": {
+    "ant-design-vue": "^2.0.0-rc.5",
+    "axios": "^0.21.0",
+    "core-js": "^3.6.5",
+    "dingtalk-jsapi": "^2.13.9",
+    "js-file-download": "^0.4.12",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.3",
+    "compression-webpack-plugin": "^7.0.0",
+    "css-generator-plugin": "2.0.3-beta",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "import-assets-from-cdn": "^0.0.2",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^9.5.0",
+    "log-info-webpack-plugin": "^1.2.1"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}

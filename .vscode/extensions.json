@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "HookyQR.beautify", // 代码自动,格式化
+    "Zignd.html-css-class-completion",  // css 提示 为项目配置
+    "milkmidi.vs-code-quick-require", // 快速引入 ctrl + shift + 1 || ctrl + shift + 2 1是require 2 import
+    "octref.vetur", // vue 基础
+    "gruntfuggly.todo-tree", // 显示todo fix 等
+    "aaron-bond.better-comments", // 注释显示
+    "dbaeumer.vscode-eslint" // eslint
+  ]
+}
