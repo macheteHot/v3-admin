@@ -52,7 +52,7 @@ export function isPrice (path) {
  */
 export const PositiveIntReg = /^[1-9]\d*?$/
 export function isPositiveInt (path) {
-  return PriceReg.test(path)
+  return PositiveIntReg.test(path)
 }
 /**
  *  限制输入 min~max个汉字、字母、数字 下划线 中划线 的正则
