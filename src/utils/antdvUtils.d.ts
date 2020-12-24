@@ -115,10 +115,14 @@ interface tableState {
   pagination: any;
   onChange(): any;
 }
-
 interface useTableReturn {
+  /**
+   * 设置表格数据和总数
+   * @param soure 设置表格数据
+   * @param options 设置总数
+   */
   setSourceAndTotal: (soure: any[], total: number) => void;
-  setPageSize: (pageSize: number) => void;
+  setPageNum: (pageSize: number) => void;
   searchTable: () => void;
   resetTable: () => void;
   setTableSource: (dataSource: any[]) => void;
@@ -128,7 +132,7 @@ interface useTableReturn {
 
 
 
-interface useTableArg {
+interface useTableConfig {
   config?: {
     init?: boolean;
     pageNum?: string;
@@ -136,15 +140,6 @@ interface useTableArg {
     sortField?: string;
     sortType?: string;
   };
-  getDataFn?: (pageValObj: {
-    [pageNum: string]: number;
-    // @ts-ignore
-    [pageSize: string]: number;
-    // @ts-ignore
-    [sortField: string]: string;
-    // @ts-ignore
-    [sortType: string]: string;
-  }) => void;
   pagination?: {
     defaultCurrent?:number;
     defaultPageSize?:number
@@ -160,11 +155,18 @@ interface useTableArg {
   } ;
 }
 
+type getDataFn = (pageValues:{
+  pageNum: number;
+  pageSize: number;
+  sortField: string;
+  sortType: string;
+}) =>void;
 
 export declare class AntdSwr {
   /**
    * antd table 工具
-   * @param options 配置
+   * @param getDataFn 获取数据的回调函数
+   * @param options 配置项
    */
-  static useTable(options?:useTableArg):useTableReturn
+  static useTable(getDataFn:getDataFn,options?:useTableConfig):useTableReturn
 } 

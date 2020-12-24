@@ -14,7 +14,7 @@
     </a-form-item>
     <a-form-item>
       <a-button type="primary" class="m-r-8" @click="submit">校验</a-button>
-      <a-button type="primary" @click="resetFields">重置</a-button>
+      <a-button type="primary" @click="reset">重置</a-button>
     </a-form-item>
   </a-form>
 
@@ -75,14 +75,20 @@ const columns = [
 ]
 async function getTableData (pageValObj) {
   const { data, total } = await mockApi({ ...pageValObj, ...mockFormData })
+  console.log(pageValObj)
   setSourceAndTotal(data, total)
 }
-const { setSourceAndTotal, tableState } = AntdSwr.useTable({
+const { setSourceAndTotal, tableState, searchTable } = AntdSwr.useTable(getTableData, {
   config     : { init: true },
-  getDataFn  : getTableData,
   pagination : { pageSizeOptions: ['50', '100', '120'] }
 
 })
+
+async function reset () {
+  resetFields()
+  setSourceAndTotal([], 0)
+}
+
 </script>
 <style scoped lang="less">
 </style>

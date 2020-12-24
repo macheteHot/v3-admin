@@ -1,4 +1,4 @@
-import { isString } from 'lodash'
+import { isString, isFunction } from 'lodash'
 import { Swr } from '@/utils'
 import { PriceReg, emailReg, PhoneReg, MobileReg, IDReg, PositiveIntReg, limtInputReg } from '@/utils/validate'
 import { message, Modal } from 'ant-design-vue'
@@ -97,10 +97,15 @@ export class AntdUtils {
 }
 
 export class AntdSwr {
-  static useTable ({ config = {}, pagination = {}, getDataFn = Function.prototype } = {}) {
+  static useTable (getDataFn, { config = {}, pagination = {} } = {}) {
+    if (!isFunction(getDataFn)) {
+      throw new Error('please set getDataFn')
+    }
+    const sorter = {
+      sortField : null,
+      sortType  : null
+    }
     const baseConfig = {
-      sortField        : null,
-      sortType         : null,
       pageSizeOptions  : ['10', '20', '30', '40', '50'],
       current          : 1,
       pageSize         : 10,
@@ -115,8 +120,8 @@ export class AntdSwr {
       const sortType = order?.slice(0, order.length - 3) ?? null
       const backOne = [
         tableState.pagination.pageSize !== pageSize,
-        tableState.pagination.sortField !== field,
-        tableState.pagination.sortType !== sortType
+        sorter.sortField !== field,
+        sorter.sortType !== sortType
       ].some(_ => _)
       if (backOne) {
         tableState.pagination.current = 1
@@ -124,8 +129,8 @@ export class AntdSwr {
         tableState.pagination.current = current
       }
       tableState.pagination.pageSize = pageSize
-      tableState.pagination.sortField = field ?? null
-      tableState.pagination.sortType = sortType
+      sorter.sortField = field ?? null
+      sorter.sortType = sortType
       getDataCallBack()
     }
 
@@ -151,8 +156,8 @@ export class AntdSwr {
         await getDataFn({
           [pageNum]   : tableState.pagination.current,
           [pageSize]  : tableState.pagination.pageSize,
-          [sortField] : tableState.pagination.sortField ?? null,
-          [sortType]  : tableState.pagination.sortType ?? null
+          [sortField] : sorter.sortField ?? null,
+          [sortType]  : sorter.sortType ?? null
         })
       } catch (error) {
         globalError(error)
@@ -167,12 +172,12 @@ export class AntdSwr {
       }
     })
 
-    function setPageSize (num) {
-      tableState.pagination.pageSize = num
+    function setPageNum (num) {
+      tableState.pagination.current = num
       getDataCallBack()
     }
     function searchTable () {
-      setPageSize(1)
+      setPageNum(1)
     }
 
     function resetTable () {
@@ -194,7 +199,7 @@ export class AntdSwr {
     }
 
     return {
-      setPageSize,
+      setPageNum,
       searchTable,
       resetTable,
       setTableSource,
