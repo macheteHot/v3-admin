@@ -1,7 +1,7 @@
 import {
   // Affix,
   // Anchor,
-  // AutoComplete,
+  AutoComplete,
   // Alert,
   // Avatar,
   // BackTop,
@@ -66,7 +66,7 @@ export default function registerAntd (app) {
   app
     // .use(Affix)
     // .use(Anchor)
-    // .use(AutoComplete)
+    .use(AutoComplete)
     // .use(Alert)
     // .use(Avatar)
     // .use(BackTop)

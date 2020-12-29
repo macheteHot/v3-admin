@@ -17,16 +17,16 @@
       <a-button type="primary" @click="reset">重置</a-button>
     </a-form-item>
   </a-form>
-
   <a-table
-    class="m-t-16"
+    class="m-t-16 flex-1"
     :columns="columns"
     v-bind="tableState"
+    :scroll="tableState.scroll"
   />
 </template>
 <script setup>
 import { Utils } from '@/utils'
-import { AntdRules, AntdSwr } from '@/utils/antdvUtils'
+import { AntdRules, AntdSwr, AntdUtils } from '@/utils/antdvUtils'
 import { reactive } from 'vue'
 import { uniqueId } from 'lodash'
 import { useForm } from '@ant-design-vue/use'
@@ -69,8 +69,8 @@ async function mockApi (obj) {
 }
 
 const columns = [
-  { title: 'id', key: 'id', dataIndex: 'id', sorter: true },
-  { title: 'name', dataIndex: 'name' },
+  { title: '1111', key: 'id', dataIndex: 'id', sorter: true },
+  // { title: 'name', dataIndex: 'name' },
   { title: 'balabala', dataIndex: 'balabala' }
 ]
 async function getTableData (pageValObj) {
@@ -78,11 +78,7 @@ async function getTableData (pageValObj) {
   console.log(pageValObj)
   setSourceAndTotal(data, total)
 }
-const { setSourceAndTotal, tableState, searchTable } = AntdSwr.useTable(getTableData, {
-  config     : { init: true },
-  pagination : { pageSizeOptions: ['50', '100', '120'] }
-
-})
+const { setSourceAndTotal, tableState, searchTable } = AntdSwr.useTable(getTableData, 230)
 
 async function reset () {
   resetFields()

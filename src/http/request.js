@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Utils } from '@/utils'
-import { ErrorMessage } from '@/utils/antdvUtils'
+import { AntdUtils } from '@/utils/antdvUtils'
 import jsFileDownload from 'js-file-download'
 import Qs from 'qs'
 import { SESSIONID, BACK_ROUTE } from '@/constants'
@@ -69,7 +69,7 @@ http.interceptors.response.use(
     const res = response.data
     if (!res.success) { // 逻辑错误 自定义错误码
       if (res.errorMsg) {
-        ErrorMessage(res.errorMsg)
+        AntdUtils.ErrorMessage(res.errorMsg)
       }
       globalError('接口调用失败')
       switch (res.errorCode) {
@@ -88,7 +88,7 @@ http.interceptors.response.use(
     // http error
     globalError(new Date(), 'err' + error) // for debug
     const status = error?.response?.status ?? 'unKnow'
-    ErrorMessage(status ? ERROR_MSG[status] ?? `连接出错(${status})!` : '未知错误!')
+    AntdUtils.ErrorMessage(status ? ERROR_MSG[status] ?? `连接出错(${status})!` : '未知错误!')
     throw new Error(JSON.stringify(error))
   }
 )

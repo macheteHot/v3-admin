@@ -164,9 +164,11 @@ type getDataFn = (pageValues:{
 
 export declare class AntdSwr {
   /**
-   * antd table 工具
-   * @param getDataFn 获取数据的回调函数
-   * @param options 配置项
+   * antd table tool
+   * @param getDataFn get Data callback
+   * @param minusNumber current page other dom height if you set 0 then not use scroll
+   * managerLayout base is 230
+   * @param options config options
    */
-  static useTable(getDataFn:getDataFn,options?:useTableConfig):useTableReturn
+  static useTable(getDataFn:getDataFn,minusNumber:number,options?:useTableConfig):useTableReturn
 } 

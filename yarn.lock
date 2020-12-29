@@ -3128,10 +3128,10 @@ css-declaration-sorter@^4.0.1:
     postcss "^7.0.1"
     timsort "^0.3.0"
 
-css-generator-plugin@2.0.4-beta:
-  version "2.0.4-beta"
-  resolved "https://registry.npmjs.org/css-generator-plugin/-/css-generator-plugin-2.0.4-beta.tgz#47d4c13fa9e5a783020df9153edc291186536e5d"
-  integrity sha512-kJP7bY3vvpmJYyFoJbIsnD/BIvQGV8d0cHMlpYNWy242OovEx6xBNSjdTSE8BB1B+jMYb0uJvAxaydyMKbO2eg==
+css-generator-plugin@2.0.5-beta:
+  version "2.0.5-beta"
+  resolved "https://registry.npmjs.org/css-generator-plugin/-/css-generator-plugin-2.0.5-beta.tgz#b9ceb80ce341d6ed11976cf053420d42ce5b43f4"
+  integrity sha512-hggorkJBYx7MItwnZn7YyD6d8zKUzVu7A9j0iSDoXGNSlRrYxqrCMfrcsq+7462JGm8HpEdNkv+vlLqdXTLHCQ==
   dependencies:
     chokidar "^3.4.0"
     commander "^5.1.0"

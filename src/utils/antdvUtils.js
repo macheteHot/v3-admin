@@ -2,8 +2,8 @@ import { isString, isFunction } from 'lodash'
 import { Swr } from '@/utils'
 import { PriceReg, emailReg, PhoneReg, MobileReg, IDReg, PositiveIntReg, limtInputReg } from '@/utils/validate'
 import { message, Modal } from 'ant-design-vue'
-import { onMounted, reactive, readonly } from 'vue'
-
+import { onMounted, reactive, readonly, ref, computed } from 'vue'
+const contentRefHeight = ref(null)
 // 常见校验规则
 export class AntdRules {
   static price = {
@@ -94,10 +94,14 @@ export class AntdUtils {
       })
     })
   }
+
+  static setContentRefHeight (height) {
+    contentRefHeight.value = height
+  }
 }
 
 export class AntdSwr {
-  static useTable (getDataFn, { config = {}, pagination = {} } = {}) {
+  static useTable (getDataFn, minusNumber = 0, { config = { }, pagination = {} } = {}) {
     if (!isFunction(getDataFn)) {
       throw new Error('please set getDataFn')
     }
@@ -108,7 +112,7 @@ export class AntdSwr {
     const baseConfig = {
       pageSizeOptions  : ['10', '20', '30', '40', '50'],
       current          : 1,
-      pageSize         : 10,
+      pageSize         : 50,
       total            : 0,
       showSizeChanger  : true,
       showQuickJumper  : true,
@@ -139,7 +143,11 @@ export class AntdSwr {
       dataSource : [],
       rowKey     : 'id',
       pagination : { ...baseConfig, ...pagination },
-      onChange   : change
+      scroll     : minusNumber === 0 ? undefined : {
+        y                        : computed(() => (contentRefHeight.value - minusNumber)),
+        scrollToFirstRowOnChange : true
+      },
+      onChange: change
     })
 
     const {

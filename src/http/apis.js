@@ -20,7 +20,8 @@ const apis = {
   /* 公共 -- start */
   getConfig    : form('/api/auth/ddConfig'), // 鉴权
   login        : form('/api/auth/login'), // 登录
-  uploadFile   : binary('/api/file/upload') // 登录
+  uploadFile   : binary('/api/file/upload'), // 登录
+  courseSearch : get('/api/xxx/xxx')
   /* 公共 -- end */
 }
 
